@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "description": "Claude Desktop MCP Server Configuration",
+  "mcpServers": {
+    "// ESSENTIAL - Localhost Access": "comment",
+    "local-proxy": {
+      "command": "npx",
+      "args": ["-y", "mcp-proxy", "http://localhost:3000/sse"],
+      "env": {
+        "API_ACCESS_TOKEN": "${LOCAL_API_TOKEN}"
+      }
+    },
+    
+    "// File System Access": "comment",
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/your/workspace"
+      ],
+      "env": {}
+    },
+    
+    "// Communication Tools (Optional)": "comment",
+    "slack-disabled": {
+      "disabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
+      "env": {
+        "SLACK_BOT_TOKEN": "${SLACK_TOKEN}"
+      }
+    },
+    
+    "email-disabled": {
+      "disabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-gmail"],
+      "env": {
+        "GMAIL_CREDENTIALS": "${GMAIL_CREDENTIALS}"
+      }
+    },
+    
+    "// Project Management (Optional)": "comment",
+    "linear-disabled": {
+      "disabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-linear"],
+      "env": {
+        "LINEAR_API_KEY": "${LINEAR_API_KEY}"
+      }
+    },
+    
+    "// Document Management (Optional)": "comment",
+    "google-drive-disabled": {
+      "disabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-google-drive"],
+      "env": {
+        "GOOGLE_DRIVE_CREDENTIALS": "${GOOGLE_DRIVE_CREDENTIALS}"
+      }
+    }
+  },
+  
+  "// Configuration Notes": [
+    "1. Start with only 'local-proxy' and 'filesystem' enabled",
+    "2. Enable other servers by removing 'disabled' flag as needed",
+    "3. Monitor performance when adding servers",
+    "4. Use environment variables for sensitive data",
+    "5. Adjust paths to match your system"
+  ]
+}
