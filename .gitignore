@@ -1,0 +1,81 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# API Keys and Secrets
+*.key
+*.pem
+*.token
+secrets/
+
+# Claude specific
+.claude-cache/
+.claude-sessions/
+workflow-history.json
+project-context.json
+
+# MCP configurations (local)
+.mcp.local.json
+claude_desktop_config.local.json
+
+# Generated files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Node modules
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv
+
+# Build outputs
+build/
+dist/
+out/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test coverage
+coverage/
+.coverage
+*.lcov
+.nyc_output/
+
+# Temporary files
+*.bak
+*.tmp
+*.temp
+*.cache
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Custom
+local/
+private/
+*.local.*
